@@ -14,7 +14,6 @@ CREATE TABLE Cliente  (
     Id_Cliente INT PRIMARY KEY IDENTITY,
     CPF_Cliente CHAR(14)  UNIQUE,
     Nome_Cliente VARCHAR(50)  ,
-    Usuario_Cliente VARCHAR(50) ,
     Email_Cliente VARCHAR(50) UNIQUE ,
     Senha_Cliente VARCHAR(255),
     Telefone_Cliente VARCHAR(15),
@@ -104,7 +103,6 @@ BEGIN
     INSERT INTO Cliente VALUES (
         '300300300' + CAST(@num1 AS NVARCHAR), --CPF
         'Cliente_' + CAST(@num1 AS NVARCHAR), --Nome
-		'UsuarioCliente_' + CAST(@num1 AS NVARCHAR), --Usuario
         'emailCliente' + CAST(@num1 AS NVARCHAR) + '@Email.com', --Email
 		'senhaCliente' + CAST(@num1 AS NVARCHAR), --Senha
         '2030060000040' + CAST(@num1 AS NVARCHAR), --Telefone
