@@ -12,7 +12,7 @@ USE Loja_Ecommerce
 go
 CREATE TABLE Cliente  (
     Id_Cliente INT PRIMARY KEY IDENTITY,
-    CPF_Cliente CHAR(14)  UNIQUE,
+    CPF_Cliente VARCHAR(14)  UNIQUE,
     Nome_Cliente VARCHAR(50)  ,
     Email_Cliente VARCHAR(50) UNIQUE ,
     Senha_Cliente VARCHAR(255),
@@ -22,7 +22,7 @@ CREATE TABLE Cliente  (
 go
 CREATE TABLE Fornecedor  (
     Id_Fornecedor INT PRIMARY KEY IDENTITY,
-    CNPJ_Fornecedor CHAR(14),--CNPJ e composto de 14 digitos alterar na versão final
+    CNPJ_Fornecedor VARCHAR(14),--CNPJ e composto de 14 digitos alterar na versão final
     Nome_Fornecedor VARCHAR(50),
     Email_Fornecedor VARCHAR(50),
     Telefone_Fornecedor VARCHAR(15)
@@ -31,13 +31,13 @@ CREATE TABLE Fornecedor  (
 CREATE TABLE Endereco_Cliente  (
     Id_Endereco_Cliente INT PRIMARY KEY IDENTITY,
     Id_Cliente INT,
-    Municipio_Cliente VARCHAR(50),
-    Estado_Cliente VARCHAR(50),
-    Numero_Cliente INT,
-    Rua_Cliente VARCHAR(50),
-    CEP_Cliente CHAR(8),
-    Referencia_Cliente VARCHAR(100),
-    Complemento_Cliente VARCHAR(50)
+    CEP_Cliente VARCHAR(8),
+    Estado_Cliente VARCHAR(100),
+    Cidade_Cliente VARCHAR(100),
+    Bairro_Cliente VARCHAR(100),
+    Rua_Cliente VARCHAR(100),
+    Numero_Cliente VARCHAR(100),
+    Complemento_Cliente VARCHAR(100)
 );
 go
 CREATE TABLE Pedido  (
@@ -131,13 +131,13 @@ SET @num2 = 1;
 WHILE @num1 <= 30
 BEGIN
     INSERT INTO Endereco_Cliente VALUES (
-        @num2, --idcliente
-		'Municipio' + CAST(@num1 AS NVARCHAR), --Municipio
-		'Estado' + CAST(@num1 AS NVARCHAR), --Estado
-		@num2 + @num1, --Numero
-		'Rua' + CAST(@num1 AS NVARCHAR), --Rua
+		@num2, --idcliente
 		'600000' + CAST(@num1 AS NVARCHAR), --CEP
-		'Referencia' + CAST(@num1 AS NVARCHAR), --Referencia
+		'Estado' + CAST(@num1 AS NVARCHAR), --Estado
+		'Cidade' + CAST(@num1 AS NVARCHAR), --Municipio
+		'Bairro' + CAST(@num1 AS NVARCHAR), --Referencia
+		'Rua' + CAST(@num1 AS NVARCHAR), --Rua
+		@num2 + @num1, --Numero
         'Complemento' + CAST(@num1 AS NVARCHAR) --Complemento
     );
     SET @num1 = @num1 + 1;
