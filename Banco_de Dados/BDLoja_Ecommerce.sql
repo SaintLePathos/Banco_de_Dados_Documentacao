@@ -18,6 +18,8 @@ CREATE TABLE Cliente  (
     Senha_Cliente VARCHAR(255),
     Telefone_Cliente VARCHAR(15),
     Img_Perfil_Cliente VARCHAR(255)
+    TokenRecuperacao VARCHAR(255),
+    TokenTempo DATETIME
 );
 go
 CREATE TABLE Fornecedor  (
@@ -50,7 +52,6 @@ go
 CREATE TABLE Produto  (
     Id_Produto INT PRIMARY KEY IDENTITY,
     Id_Fornecedor INT,
-
     Nome_Produto VARCHAR(50),
     Img_Produto VARCHAR(50),
     Descricao_Produto VARCHAR(500),
