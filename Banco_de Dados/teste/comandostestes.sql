@@ -1,5 +1,7 @@
 ﻿go
 
+select * from Pedido
+
 DECLARE @num1 INT;
 DECLARE @num2 INT;
 DECLARE @num3 INT;
