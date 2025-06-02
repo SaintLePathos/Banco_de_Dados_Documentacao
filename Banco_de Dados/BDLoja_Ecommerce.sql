@@ -12,7 +12,7 @@ USE Loja_Ecommerce
 go
 CREATE TABLE Cliente  (
     Id_Cliente INT PRIMARY KEY IDENTITY,
-    CPF_Cliente VARCHAR(14)  UNIQUE,
+    CPF_Cliente VARCHAR(11)  UNIQUE,
     Nome_Cliente VARCHAR(50)  ,
     Email_Cliente VARCHAR(50) UNIQUE ,
     Senha_Cliente VARCHAR(255),
