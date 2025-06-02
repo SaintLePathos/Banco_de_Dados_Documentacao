@@ -57,7 +57,7 @@ CREATE TABLE Produto  (
     Img_Produto VARCHAR(50),
     Descricao_Produto VARCHAR(500),
     Valor_Produto DECIMAL(10,2),
-    Desconto_Produto INT,
+    Desconto_Produto INT default 0,
     Tamanho_Produto VARCHAR(50),
     Quantidade_Produto INT,
     Tecido_Produto VARCHAR(50),
