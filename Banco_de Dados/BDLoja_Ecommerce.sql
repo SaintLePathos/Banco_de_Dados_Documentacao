@@ -17,9 +17,9 @@ CREATE TABLE Cliente  (
     Email_Cliente VARCHAR(50) UNIQUE ,
     Senha_Cliente VARCHAR(255),
     Telefone_Cliente VARCHAR(15),
-    Img_Perfil_Cliente VARCHAR(255)--,
-    --TokenRecuperacao VARCHAR(255),
-    --TokenTempo DATETIME
+    Img_Perfil_Cliente VARCHAR(255),
+    TokenRecuperacao VARCHAR(255),
+    TokenTempo DATETIME
 );
 go
 CREATE TABLE Fornecedor  (
@@ -44,7 +44,7 @@ CREATE TABLE Endereco_Cliente  (
 go
 CREATE TABLE Pedido  (
     Id_Pedido INT PRIMARY KEY IDENTITY,
-    Id_Cliente INT,
+    Id_Endereco_Cliente INT,
 	Data_Pedido DATE,
     Data_Envio_Pedido DATE,
     Data_Entrega_Pedido DATE
@@ -77,9 +77,9 @@ ALTER TABLE Endereco_Cliente  ADD CONSTRAINT FK_Id_Cliente_Endereco_Cliente
     FOREIGN KEY (Id_Cliente)
     REFERENCES Cliente  (Id_Cliente);
  go
-ALTER TABLE Pedido  ADD CONSTRAINT FK_Id_Cliente_Pedido
-    FOREIGN KEY (Id_Cliente)
-    REFERENCES Cliente  (Id_Cliente);
+ALTER TABLE Pedido  ADD CONSTRAINT FK_Id_Endereco_Cliente_Pedido
+    FOREIGN KEY (Id_Endereco_Cliente)
+    REFERENCES Endereco_Cliente  (Id_Endereco_Cliente);
 go 
 ALTER TABLE Produto  ADD CONSTRAINT FK_Id_Fornecedor_Produto
     FOREIGN KEY (Id_Fornecedor)
