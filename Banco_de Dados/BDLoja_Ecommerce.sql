@@ -19,7 +19,8 @@ CREATE TABLE Cliente  (
     Telefone_Cliente VARCHAR(15),
     Img_Perfil_Cliente VARCHAR(255),
     TokenRecuperacao VARCHAR(255),
-    TokenTempo DATETIME
+    TokenTempo DATETIME,
+	--Conta_Ativa BIT DEFAULT 1
 );
 go
 CREATE TABLE Fornecedor  (
@@ -47,14 +48,14 @@ CREATE TABLE Pedido  (
     Id_Endereco_Cliente INT,
 	Data_Pedido DATE,
     Data_Envio_Pedido DATE,
-    Data_Entrega_Pedido DATE
+    Data_Entrega_Pedido DATE,
+	Status_Pedido BIT DEFAULT 1
 );
 go
 CREATE TABLE Produto  (
     Id_Produto INT PRIMARY KEY IDENTITY,
     Id_Fornecedor INT,
     Nome_Produto VARCHAR(50),
-    Img_Produto VARCHAR(50),
     Descricao_Produto VARCHAR(500),
     Valor_Produto DECIMAL(10,2),
     Desconto_Produto INT default 0,
@@ -62,6 +63,12 @@ CREATE TABLE Produto  (
     Quantidade_Produto INT,
     Tecido_Produto VARCHAR(50),
     Cor_Produto VARCHAR(50)
+);
+go
+CREATE TABLE Imagem_Produto (
+    Id_Imagem_Produto INT PRIMARY KEY IDENTITY,
+    Id_Produto INT,
+    Url_ImgProduto VARCHAR(255),
 );
 go
 CREATE TABLE Produto_Pedido  (
@@ -72,7 +79,10 @@ CREATE TABLE Produto_Pedido  (
     PRIMARY KEY (Id_Produto, Id_Pedido)
 );
 go
-
+ALTER TABLE Imagem_Produto ADD CONSTRAINT FK_Id_Produto_Imagem_Produto
+    FOREIGN KEY (Id_Produto)
+    REFERENCES Produto (Id_Produto);
+go
 ALTER TABLE Endereco_Cliente  ADD CONSTRAINT FK_Id_Cliente_Endereco_Cliente
     FOREIGN KEY (Id_Cliente)
     REFERENCES Cliente  (Id_Cliente);
