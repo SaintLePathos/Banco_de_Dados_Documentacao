@@ -69,6 +69,7 @@ CREATE TABLE Imagem_Produto (
     Id_Imagem_Produto INT PRIMARY KEY IDENTITY,
     Id_Produto INT,
     Url_ImgProduto VARCHAR(255),
+	Ordem_ImgProduto INT DEFAULT 0
 );
 go
 CREATE TABLE Produto_Pedido  (
@@ -102,3 +103,5 @@ go
 ALTER TABLE Produto_Pedido  ADD CONSTRAINT FK_Id_Pedido_Produto_Pedido
     FOREIGN KEY (Id_Pedido)
     REFERENCES Pedido  (Id_Pedido);
+
+use master
