@@ -62,7 +62,8 @@ CREATE TABLE Produto  (
     Tamanho_Produto VARCHAR(50),
     Quantidade_Produto INT,
     Tecido_Produto VARCHAR(50),
-    Cor_Produto VARCHAR(50)
+    Cor_Produto VARCHAR(50),
+	Custo_Produto DECIMAL(10,2)
 );
 go
 CREATE TABLE Imagem_Produto (
