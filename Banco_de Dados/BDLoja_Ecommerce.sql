@@ -35,11 +35,11 @@ CREATE TABLE Endereco_Cliente  (
     Id_Endereco_Cliente INT PRIMARY KEY IDENTITY,
     Id_Cliente INT,
     CEP_Cliente VARCHAR(8),
-    Estado_Cliente VARCHAR(100),
-    Cidade_Cliente VARCHAR(100),
-    Bairro_Cliente VARCHAR(100),
-    Rua_Cliente VARCHAR(100),
-    Numero_Cliente VARCHAR(100),
+    Estado_Cliente VARCHAR(2),
+    Cidade_Cliente VARCHAR(50),
+    Bairro_Cliente VARCHAR(50),
+    Rua_Cliente VARCHAR(50),
+    Numero_Cliente VARCHAR(9),
     Complemento_Cliente VARCHAR(100)
 );
 go
