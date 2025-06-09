@@ -25,7 +25,7 @@ CREATE TABLE Cliente  (
 go
 CREATE TABLE Fornecedor  (
     Id_Fornecedor INT PRIMARY KEY IDENTITY,
-    CNPJ_Fornecedor VARCHAR(14),--CNPJ e composto de 14 digitos alterar na versão final
+    CNPJ_Fornecedor CHAR(14) UNIQUE,--CNPJ e composto de 14 digitos alterar na versão final
     Nome_Fornecedor VARCHAR(50),
     Email_Fornecedor VARCHAR(50),
     Telefone_Fornecedor VARCHAR(15)
@@ -34,13 +34,13 @@ CREATE TABLE Fornecedor  (
 CREATE TABLE Endereco_Cliente  (
     Id_Endereco_Cliente INT PRIMARY KEY IDENTITY,
     Id_Cliente INT,
-    CEP_Cliente VARCHAR(8),
-    Estado_Cliente VARCHAR(100),
-    Cidade_Cliente VARCHAR(100),
-    Bairro_Cliente VARCHAR(100),
-    Rua_Cliente VARCHAR(100),
-    Numero_Cliente VARCHAR(100),
-    Complemento_Cliente VARCHAR(100)
+    CEP_Cliente CHAR(8),
+    Estado_Cliente CHAR(2),
+    Cidade_Cliente VARCHAR(50),
+    Bairro_Cliente VARCHAR(50),
+    Rua_Cliente VARCHAR(50),
+    Numero_Cliente VARCHAR(50),
+    Complemento_Cliente VARCHAR(50)
 );
 go
 CREATE TABLE Pedido  (
