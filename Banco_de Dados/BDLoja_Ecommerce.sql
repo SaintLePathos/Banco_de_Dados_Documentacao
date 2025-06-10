@@ -40,7 +40,7 @@ CREATE TABLE Endereco_Cliente  (
     Bairro_Cliente VARCHAR(50),
     Rua_Cliente VARCHAR(50),
     Numero_Cliente VARCHAR(9),
-    Complemento_Cliente VARCHAR(50)
+    Complemento_Cliente VARCHAR(150)
 );
 go
 CREATE TABLE Pedido  (
@@ -79,6 +79,16 @@ CREATE TABLE Produto_Pedido  (
     Quantidade_Produto_Pedido INT,
 	Valor_Produto_Pedido DECIMAL(10,2)
     PRIMARY KEY (Id_Produto, Id_Pedido)
+);
+go
+CREATE TABLE Funcionario (
+    Id_Funcionario INT PRIMARY KEY IDENTITY,
+    Nome_Funcionario VARCHAR(50),
+    Usuario_Funcionario VARCHAR(50) UNIQUE,
+    Senha_Funcionario VARCHAR(255),
+    Cargo_Funcionario VARCHAR(30),  -- Ex: Admin, Estoquista, Gerente
+    Ativo BIT DEFAULT 1,
+    --Data_Cadastro DATETIME DEFAULT GETDATE()
 );
 go
 ALTER TABLE Imagem_Produto ADD CONSTRAINT FK_Id_Produto_Imagem_Produto
