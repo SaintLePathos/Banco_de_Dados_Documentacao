@@ -167,20 +167,35 @@ INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Descricao_Produto, Valor_Produ
 (5, 'Vestido Elegante', 'Vestido de seda para ocasiões especiais.', 299.90, 'M', 15, 'Seda', 'Vermelho', 150.00);
 
 -- Inserindo dados na tabela Imagem_Produto
-INSERT INTO Imagem_Produto (Id_Produto, Url_ImgProduto) VALUES
-(1, 'camisa_azul.jpg'),
-(2, 'calca_preta.jpg'),
-(3, 'jaqueta_marrom.jpg'),
-(4, 'tenis_branco.jpg'),
-(5, 'vestido_vermelho.jpg');
+INSERT INTO Imagem_Produto (Id_Produto, Url_ImgProduto, Ordem_ImgProduto) VALUES
+(1, '\uploads\imgProduto\img1.png',0),
+(1, '\uploads\imgProduto\img2.png',1),
+(1, '\uploads\imgProduto\img3.png',2),
+(1, '\uploads\imgProduto\img4.png',3),
+(2, '\uploads\imgProduto\img1.png',0),
+(2, '\uploads\imgProduto\img2.png',1),
+(2, '\uploads\imgProduto\img3.png',2),
+(2, '\uploads\imgProduto\img4.png',3),
+(3, '\uploads\imgProduto\img1.png',0),
+(3, '\uploads\imgProduto\img2.png',1),
+(3, '\uploads\imgProduto\img3.png',2),
+(3, '\uploads\imgProduto\img4.png',3),
+(4, '\uploads\imgProduto\img1.png',0),
+(4, '\uploads\imgProduto\img2.png',1),
+(4, '\uploads\imgProduto\img3.png',2),
+(4, '\uploads\imgProduto\img4.png',3),
+(5, '\uploads\imgProduto\img1.png',0),
+(5, '\uploads\imgProduto\img2.png',1),
+(5, '\uploads\imgProduto\img3.png',2),
+(5, '\uploads\imgProduto\img4.png',3);
 
 -- Inserindo dados na tabela Produto_Pedido
 INSERT INTO Produto_Pedido (Id_Produto, Id_Pedido, Quantidade_Produto_Pedido, Valor_Produto_Pedido) VALUES
-(1, 1, 2, 45.00),
-(2, 2, 1, 60.00),
-(3, 3, 1, 95.00),
-(4, 4, 2, 120.00),
-(5, 5, 1, 150.00);
+(1, 1, 2, 89.90),
+(2, 2, 1, 129.90),
+(3, 3, 1, 199.90),
+(4, 4, 2, 249.90),
+(5, 5, 1, 299.90);
 go
 -- Exibir todos os funcionários
 SELECT * FROM Funcionario;
