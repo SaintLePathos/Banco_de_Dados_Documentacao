@@ -10,6 +10,16 @@ CREATE DATABASE Loja_Ecommerce
 go
 USE Loja_Ecommerce
 go
+CREATE TABLE Funcionario (
+    Id_Funcionario INT PRIMARY KEY IDENTITY,
+    Nome_Funcionario VARCHAR(50),
+    Usuario_Funcionario VARCHAR(50) UNIQUE,
+    Senha_Funcionario VARCHAR(255),
+    Cargo_Funcionario VARCHAR(30),  -- Ex: Admin, Estoquista, Gerente
+    Ativo BIT DEFAULT 1,
+    Data_Cadastro DATETIME DEFAULT GETDATE()
+);
+go
 CREATE TABLE Cliente  (
     Id_Cliente INT PRIMARY KEY IDENTITY,
     CPF_Cliente VARCHAR(11)  UNIQUE,
@@ -20,7 +30,7 @@ CREATE TABLE Cliente  (
     Img_Perfil_Cliente VARCHAR(255),
     TokenRecuperacao VARCHAR(255),
     TokenTempo DATETIME,
-	--Conta_Ativa BIT DEFAULT 1
+	Conta_Ativa BIT DEFAULT 1
 );
 go
 CREATE TABLE Fornecedor  (
@@ -81,16 +91,7 @@ CREATE TABLE Produto_Pedido  (
     PRIMARY KEY (Id_Produto, Id_Pedido)
 );
 go
-CREATE TABLE Funcionario (
-    Id_Funcionario INT PRIMARY KEY IDENTITY,
-    Nome_Funcionario VARCHAR(50),
-    Usuario_Funcionario VARCHAR(50) UNIQUE,
-    Senha_Funcionario VARCHAR(255),
-    Cargo_Funcionario VARCHAR(30),  -- Ex: Admin, Estoquista, Gerente
-    Ativo BIT DEFAULT 1,
-    --Data_Cadastro DATETIME DEFAULT GETDATE()
-);
-go
+
 ALTER TABLE Imagem_Produto ADD CONSTRAINT FK_Id_Produto_Imagem_Produto
     FOREIGN KEY (Id_Produto)
     REFERENCES Produto (Id_Produto);
