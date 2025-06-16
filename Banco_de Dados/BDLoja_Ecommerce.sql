@@ -223,4 +223,13 @@ SELECT * FROM Produto_Pedido;
 
 go
 
+CREATE PROCEDURE mySp_getSenhaPorLogin
+	@login VARCHAR(100)
+AS
+BEGIN
+	SELECT Email_Cliente, Senha_Cliente
+	FROM Cliente
+	WHERE Email_Cliente = @login
+END
+go
 use master
