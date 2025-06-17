@@ -151,12 +151,12 @@ INSERT INTO Endereco_Cliente (Id_Cliente, CEP_Cliente, Estado_Cliente, Cidade_Cl
 (5, '05005000', 'RS', 'Porto Alegre', 'Moinhos', 'Rua E', '654', 'Casa');
 
 -- Inserindo dados na tabela Pedido
-INSERT INTO Pedido (Id_Endereco_Cliente, Data_Pedido, Data_Envio_Pedido, Data_Entrega_Pedido) VALUES
-(1, '2025-06-01', '2025-06-02', '2025-06-05'),
-(2, '2025-06-03', '2025-06-04', '2025-06-07'),
-(3, '2025-06-05', '2025-06-06', '2025-06-10'),
-(4, '2025-06-07', '2025-06-08', '2025-06-12'),
-(5, '2025-06-09', '2025-06-10', '2025-06-15');
+INSERT INTO Pedido (Id_Endereco_Cliente, Data_Pedido, Data_Envio_Pedido, Data_Entrega_Pedido, Status_Pedido) VALUES
+(1, '2025-06-01', '2025-06-02', '2025-06-05', 1),
+(2, '2025-06-03', '2025-06-04', '2025-06-07', 1),
+(3, '2025-06-05', '2025-06-06', '2025-06-10', 1),
+(4, '2025-06-07', '2025-06-08', '2025-06-12', 1),
+(5, '2025-06-09', '2025-06-10', '2025-06-15', 1);
 
 -- Inserindo dados na tabela Produto
 INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Descricao_Produto, Valor_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto, Custo_Produto) VALUES
@@ -168,26 +168,26 @@ INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Descricao_Produto, Valor_Produ
 
 -- Inserindo dados na tabela Imagem_Produto
 INSERT INTO Imagem_Produto (Id_Produto, Url_ImgProduto, Ordem_ImgProduto) VALUES
-(1, '\uploads\imgProduto\img1.png',0),
-(1, '\uploads\imgProduto\img2.png',1),
-(1, '\uploads\imgProduto\img3.png',2),
-(1, '\uploads\imgProduto\img4.png',3),
-(2, '\uploads\imgProduto\img1.png',0),
-(2, '\uploads\imgProduto\img2.png',1),
-(2, '\uploads\imgProduto\img3.png',2),
-(2, '\uploads\imgProduto\img4.png',3),
-(3, '\uploads\imgProduto\img1.png',0),
-(3, '\uploads\imgProduto\img2.png',1),
-(3, '\uploads\imgProduto\img3.png',2),
-(3, '\uploads\imgProduto\img4.png',3),
-(4, '\uploads\imgProduto\img1.png',0),
-(4, '\uploads\imgProduto\img2.png',1),
-(4, '\uploads\imgProduto\img3.png',2),
-(4, '\uploads\imgProduto\img4.png',3),
-(5, '\uploads\imgProduto\img1.png',0),
-(5, '\uploads\imgProduto\img2.png',1),
-(5, '\uploads\imgProduto\img3.png',2),
-(5, '\uploads\imgProduto\img4.png',3);
+(1, 'uploads\imgProduto\img1.png',0),
+(1, 'uploads\imgProduto\img2.png',1),
+(1, 'uploads\imgProduto\img3.png',2),
+(1, 'uploads\imgProduto\img4.png',3),
+(2, 'uploads\imgProduto\img1.png',0),
+(2, 'uploads\imgProduto\img2.png',1),
+(2, 'uploads\imgProduto\img3.png',2),
+(2, 'uploads\imgProduto\img4.png',3),
+(3, 'uploads\imgProduto\img1.png',0),
+(3, 'uploads\imgProduto\img2.png',1),
+(3, 'uploads\imgProduto\img3.png',2),
+(3, 'uploads\imgProduto\img4.png',3),
+(4, 'uploads\imgProduto\img1.png',0),
+(4, 'uploads\imgProduto\img2.png',1),
+(4, 'uploads\imgProduto\img3.png',2),
+(4, 'uploads\imgProduto\img4.png',3),
+(5, 'uploads\imgProduto\img1.png',0),
+(5, 'uploads\imgProduto\img2.png',1),
+(5, 'uploads\imgProduto\img3.png',2),
+(5, 'uploads\imgProduto\img4.png',3);
 
 -- Inserindo dados na tabela Produto_Pedido
 INSERT INTO Produto_Pedido (Id_Produto, Id_Pedido, Quantidade_Produto_Pedido, Valor_Produto_Pedido) VALUES
