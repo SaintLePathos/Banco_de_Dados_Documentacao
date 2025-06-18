@@ -33,13 +33,22 @@ CREATE TABLE Cliente  (
 	Conta_Ativa BIT DEFAULT 1
 );
 go
-CREATE TABLE Fornecedor  (
+CREATE TABLE Fornecedor (
     Id_Fornecedor INT PRIMARY KEY IDENTITY,
-    CNPJ_Fornecedor CHAR(14) UNIQUE,--CNPJ e composto de 14 digitos alterar na vers�o final
-    Nome_Fornecedor VARCHAR(50),
-    Email_Fornecedor VARCHAR(50),
-    Telefone_Fornecedor VARCHAR(15)
+    CNPJ_Fornecedor CHAR(14) UNIQUE NOT NULL,
+    Razao_Social_Fornecedor VARCHAR(100) NOT NULL,
+    Nome_Fantasia_Fornecedor VARCHAR(100),
+    Email_Fornecedor VARCHAR(100) UNIQUE NOT NULL,
+    Telefone_Fornecedor VARCHAR(15),
+    Contato_Fornecedor VARCHAR(50),    -- nome da pessoa para contato
+    Cargo_Contato_Fornecedor VARCHAR(50),         -- cargo dessa pessoa
+    CEP_Fornecedor CHAR(8) NOT NULL,
+    Endereco_Fornecedor VARCHAR(100) NOT NULL,
+    Numero_Fornecedor VARCHAR(10) NOT NULL,
+    UF_Fornecedor CHAR(2) NOT NULL,
+    Data_Cadastro_Fornecedor DATETIME DEFAULT GETDATE()
 );
+
  go
 CREATE TABLE Endereco_Cliente  (
     Id_Endereco_Cliente INT PRIMARY KEY IDENTITY,
@@ -56,6 +65,7 @@ go
 CREATE TABLE Pedido  (
     Id_Pedido INT PRIMARY KEY IDENTITY,
     Id_Endereco_Cliente INT,
+	Id_Funcionario INT,
 	Data_Pedido DATE,
     Data_Envio_Pedido DATE,
     Data_Entrega_Pedido DATE,
@@ -103,6 +113,10 @@ ALTER TABLE Endereco_Cliente  ADD CONSTRAINT FK_Id_Cliente_Endereco_Cliente
 ALTER TABLE Pedido  ADD CONSTRAINT FK_Id_Endereco_Cliente_Pedido
     FOREIGN KEY (Id_Endereco_Cliente)
     REFERENCES Endereco_Cliente  (Id_Endereco_Cliente);
+go
+ALTER TABLE Pedido  ADD CONSTRAINT FK_Id_Funcionario_Pedido
+    FOREIGN KEY (Id_Funcionario)
+    REFERENCES Funcionario  (Id_Funcionario);
 go 
 ALTER TABLE Produto  ADD CONSTRAINT FK_Id_Fornecedor_Produto
     FOREIGN KEY (Id_Fornecedor)
@@ -223,4 +237,13 @@ SELECT * FROM Produto_Pedido;
 
 go
 
+CREATE PROCEDURE mySp_getSenhaPorLogin
+	@login VARCHAR(100)
+AS
+BEGIN
+	SELECT Email_Cliente, Senha_Cliente
+	FROM Cliente
+	WHERE Email_Cliente = @login
+END
+go
 use master
