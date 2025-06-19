@@ -48,7 +48,6 @@ CREATE TABLE Fornecedor (
     UF_Fornecedor CHAR(2) NOT NULL,
     Data_Cadastro_Fornecedor DATETIME DEFAULT GETDATE()
 );
-
  go
 CREATE TABLE Endereco_Cliente  (
     Id_Endereco_Cliente INT PRIMARY KEY IDENTITY,
@@ -59,7 +58,8 @@ CREATE TABLE Endereco_Cliente  (
     Bairro_Cliente VARCHAR(50),
     Rua_Cliente VARCHAR(50),
     Numero_Cliente VARCHAR(9),
-    Complemento_Cliente VARCHAR(150)
+    Complemento_Cliente VARCHAR(150),
+	Visivel BIT DEFAULT 1
 );
 go
 CREATE TABLE Pedido  (
@@ -149,12 +149,17 @@ INSERT INTO Cliente (CPF_Cliente, Nome_Cliente, Email_Cliente, Senha_Cliente, Te
 ('56789012345', 'Felipe Rocha', 'felipe@email.com', 'felipedef', '11955554444', 'img5.png');
 
 -- Inserindo dados na tabela Fornecedor
-INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor) VALUES
-('12345678000101', 'FashionStore', 'contato@fashionstore.com', '11999996666'),
-('23456789000102', 'TrendShop', 'contato@trendshop.com', '11988885555'),
-('34567890000103', 'ModaExpress', 'contato@modaexpress.com', '11977774444'),
-('45678901000104', 'StyleWear', 'contato@stylewear.com', '11966663333'),
-('56789012000105', 'Elegance', 'contato@elegance.com', '11955552222');
+INSERT INTO Fornecedor (
+    CNPJ_Fornecedor, Razao_Social_Fornecedor, Nome_Fantasia_Fornecedor, 
+    Email_Fornecedor, Telefone_Fornecedor, Contato_Fornecedor, 
+    Cargo_Contato_Fornecedor, CEP_Fornecedor, Endereco_Fornecedor, 
+    Numero_Fornecedor, UF_Fornecedor
+) VALUES
+('12345678000101', 'Fornecedor A Ltda', 'Fornecedor A', 'contato@fornecedora.com', '11999994444', 'João Silva', 'Gerente', '01001000', 'Rua das Flores, 123', '100', 'SP'),
+('98765432000102', 'Fornecedor B S.A.', 'Fornecedor B', 'contato@fornecedorb.com', '21988883333', 'Maria Souza', 'Diretora', '20020000', 'Av. Central, 456', '200', 'RJ'),
+('45678912000103', 'Fornecedor C ME', 'Fornecedor C', 'contato@fornecedorc.com', '31977772222', 'Carlos Lima', 'Supervisor', '30030000', 'Rua do Comércio, 789', '300', 'MG'),
+('65432198000104', 'Fornecedor D EIRELI', 'Fornecedor D', 'contato@fornecedord.com', '41966661111', 'Ana Pereira', 'Coordenadora', '40040000', 'Av. Paulista, 101', '400', 'PR'),
+('78912345000105', 'Fornecedor E Ltda', 'Fornecedor E', 'contato@fornecedore.com', '51955550000', 'Pedro Santos', 'Analista', '50050000', 'Rua das Palmeiras, 202', '500', 'RS');
 
 -- Inserindo dados na tabela Endereco_Cliente
 INSERT INTO Endereco_Cliente (Id_Cliente, CEP_Cliente, Estado_Cliente, Cidade_Cliente, Bairro_Cliente, Rua_Cliente, Numero_Cliente, Complemento_Cliente) VALUES
@@ -174,7 +179,7 @@ INSERT INTO Pedido (Id_Endereco_Cliente, Data_Pedido, Data_Envio_Pedido, Data_En
 
 -- Inserindo dados na tabela Produto
 INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Descricao_Produto, Valor_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto, Custo_Produto) VALUES
-(1, 'Camisa Casual', 'Camisa de algodão confortável.', 89.90, 'M', 50, 'Algodão', 'Azul', 45.00),
+(1, 'Camisa Casual', 'Camisa de algodão confortável.', 89.99, 'M', 50, 'Algodão', 'Azul', 45.00),
 (2, 'Calça Jeans', 'Calça jeans resistente e estilosa.', 129.90, '42', 30, 'Denim', 'Preta', 60.00),
 (3, 'Jaqueta', 'Jaqueta de couro sintético.', 199.90, 'P', 20, 'Couro Sintético', 'Marrom', 95.00),
 (4, 'Bermuda', 'Bermuda confortável para corrida.', 249.90, '42', 25, 'Viscose', 'Branco', 120.00),
@@ -205,7 +210,7 @@ INSERT INTO Imagem_Produto (Id_Produto, Url_ImgProduto, Ordem_ImgProduto) VALUES
 
 -- Inserindo dados na tabela Produto_Pedido
 INSERT INTO Produto_Pedido (Id_Produto, Id_Pedido, Quantidade_Produto_Pedido, Valor_Produto_Pedido) VALUES
-(1, 1, 2, 89.90),
+(1, 1, 2, 89.99),
 (2, 2, 1, 129.90),
 (3, 3, 1, 199.90),
 (4, 4, 2, 249.90),
