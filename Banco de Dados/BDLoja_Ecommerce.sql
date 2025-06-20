@@ -37,7 +37,7 @@ CREATE TABLE Fornecedor (
     Id_Fornecedor INT PRIMARY KEY IDENTITY,
     CNPJ_Fornecedor CHAR(14) UNIQUE NOT NULL,
     Razao_Social_Fornecedor VARCHAR(100) NOT NULL,
-    Nome_Fantasia_Fornecedor VARCHAR(100),
+    Nome_Fornecedor VARCHAR(100),
     Email_Fornecedor VARCHAR(100) UNIQUE NOT NULL,
     Telefone_Fornecedor VARCHAR(15),
     Contato_Fornecedor VARCHAR(50),    -- nome da pessoa para contato
@@ -140,17 +140,9 @@ INSERT INTO Funcionario (Nome_Funcionario, Usuario_Funcionario, Senha_Funcionari
 
 -- "Administrador", "Operador", "Gerente", "Financeiro" 
 
--- Inserindo dados na tabela Cliente
-INSERT INTO Cliente (CPF_Cliente, Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Cliente, Img_Perfil_Cliente) VALUES
-('12345678901', 'Lucas Pereira', 'lucas@email.com', 'lucas123', '11999998888', 'img1.png'),
-('23456789012', 'Mariana Costa', 'mariana@email.com', 'mariana456', '11988887777', 'img2.png'),
-('34567890123', 'Thiago Silva', 'thiago@email.com', 'thiago789', '11977776666', 'img3.png'),
-('45678901234', 'Bruna Martins', 'bruna@email.com', 'brunaabc', '11966665555', 'img4.png'),
-('56789012345', 'Felipe Rocha', 'felipe@email.com', 'felipedef', '11955554444', 'img5.png');
-
 -- Inserindo dados na tabela Fornecedor
 INSERT INTO Fornecedor (
-    CNPJ_Fornecedor, Razao_Social_Fornecedor, Nome_Fantasia_Fornecedor, 
+    CNPJ_Fornecedor, Razao_Social_Fornecedor, Nome_Fornecedor, 
     Email_Fornecedor, Telefone_Fornecedor, Contato_Fornecedor, 
     Cargo_Contato_Fornecedor, CEP_Fornecedor, Endereco_Fornecedor, 
     Numero_Fornecedor, UF_Fornecedor
@@ -160,22 +152,6 @@ INSERT INTO Fornecedor (
 ('45678912000103', 'Fornecedor C ME', 'Fornecedor C', 'contato@fornecedorc.com', '31977772222', 'Carlos Lima', 'Supervisor', '30030000', 'Rua do Comércio, 789', '300', 'MG'),
 ('65432198000104', 'Fornecedor D EIRELI', 'Fornecedor D', 'contato@fornecedord.com', '41966661111', 'Ana Pereira', 'Coordenadora', '40040000', 'Av. Paulista, 101', '400', 'PR'),
 ('78912345000105', 'Fornecedor E Ltda', 'Fornecedor E', 'contato@fornecedore.com', '51955550000', 'Pedro Santos', 'Analista', '50050000', 'Rua das Palmeiras, 202', '500', 'RS');
-
--- Inserindo dados na tabela Endereco_Cliente
-INSERT INTO Endereco_Cliente (Id_Cliente, CEP_Cliente, Estado_Cliente, Cidade_Cliente, Bairro_Cliente, Rua_Cliente, Numero_Cliente, Complemento_Cliente) VALUES
-(1, '01001000', 'SP', 'São Paulo', 'Centro', 'Rua A', '123', 'Ap 10'),
-(2, '02002000', 'SP', 'São Paulo', 'Moema', 'Rua B', '456', 'Casa'),
-(3, '03003000', 'RJ', 'Rio de Janeiro', 'Copacabana', 'Rua C', '789', 'Bloco 2'),
-(4, '04004000', 'MG', 'Belo Horizonte', 'Savassi', 'Rua D', '321', 'Fundos'),
-(5, '05005000', 'RS', 'Porto Alegre', 'Moinhos', 'Rua E', '654', 'Casa');
-
--- Inserindo dados na tabela Pedido
-INSERT INTO Pedido (Id_Endereco_Cliente, Data_Pedido, Data_Envio_Pedido, Data_Entrega_Pedido, Status_Pedido) VALUES
-(1, '2025-06-01', '2025-06-02', '2025-06-05', 1),
-(2, '2025-06-03', '2025-06-04', '2025-06-07', 1),
-(3, '2025-06-05', '2025-06-06', '2025-06-10', 1),
-(4, '2025-06-07', '2025-06-08', '2025-06-12', 1),
-(5, '2025-06-09', '2025-06-10', '2025-06-15', 1);
 
 -- Inserindo dados na tabela Produto
 INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Descricao_Produto, Valor_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto, Custo_Produto) VALUES
@@ -208,13 +184,6 @@ INSERT INTO Imagem_Produto (Id_Produto, Url_ImgProduto, Ordem_ImgProduto) VALUES
 (5, 'uploads\imgProduto\img3.png',2),
 (5, 'uploads\imgProduto\img4.png',3);
 
--- Inserindo dados na tabela Produto_Pedido
-INSERT INTO Produto_Pedido (Id_Produto, Id_Pedido, Quantidade_Produto_Pedido, Valor_Produto_Pedido) VALUES
-(1, 1, 2, 89.99),
-(2, 2, 1, 129.90),
-(3, 3, 1, 199.90),
-(4, 4, 2, 249.90),
-(5, 5, 1, 299.90);
 go
 -- Exibir todos os funcionários
 SELECT * FROM Funcionario;
