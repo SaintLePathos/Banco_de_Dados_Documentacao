@@ -44,7 +44,6 @@ CREATE TABLE Fornecedor (
     Cargo_Contato_Fornecedor VARCHAR(50),         -- cargo dessa pessoa
     CEP_Fornecedor CHAR(8) NOT NULL,
     Endereco_Fornecedor VARCHAR(100) NOT NULL,
-    Numero_Fornecedor VARCHAR(10) NOT NULL,
     UF_Fornecedor CHAR(2) NOT NULL,
     Data_Cadastro_Fornecedor DATETIME DEFAULT GETDATE()
 );
@@ -133,7 +132,6 @@ go
 -- Inserindo dados na tabela Funcionario
 INSERT INTO Funcionario (Nome_Funcionario, Usuario_Funcionario, Senha_Funcionario, Cargo_Funcionario) VALUES
 ('Ana Souza', 'ana', 'ana1234', 'Administrador'),
-('Carlos Mendes', 'carlos', 'carlos1234', 'Administrador'),
 ('Beatriz Lima', 'beatriz', 'beatriz1234', 'Operador'),
 ('Fernando Oliveira', 'fernando', 'fernando1234', 'Financeiro'),
 ('Juliana Santos', 'juliana', 'juliana1234', 'Gerente');
@@ -144,14 +142,13 @@ INSERT INTO Funcionario (Nome_Funcionario, Usuario_Funcionario, Senha_Funcionari
 INSERT INTO Fornecedor (
     CNPJ_Fornecedor, Razao_Social_Fornecedor, Nome_Fornecedor, 
     Email_Fornecedor, Telefone_Fornecedor, Contato_Fornecedor, 
-    Cargo_Contato_Fornecedor, CEP_Fornecedor, Endereco_Fornecedor, 
-    Numero_Fornecedor, UF_Fornecedor
+    Cargo_Contato_Fornecedor, CEP_Fornecedor, Endereco_Fornecedor, UF_Fornecedor
 ) VALUES
-('12345678000101', 'Fornecedor A Ltda', 'Fornecedor A', 'contato@fornecedora.com', '11999994444', 'João Silva', 'Gerente', '01001000', 'Rua das Flores, 123', '100', 'SP'),
-('98765432000102', 'Fornecedor B S.A.', 'Fornecedor B', 'contato@fornecedorb.com', '21988883333', 'Maria Souza', 'Diretora', '20020000', 'Av. Central, 456', '200', 'RJ'),
-('45678912000103', 'Fornecedor C ME', 'Fornecedor C', 'contato@fornecedorc.com', '31977772222', 'Carlos Lima', 'Supervisor', '30030000', 'Rua do Comércio, 789', '300', 'MG'),
-('65432198000104', 'Fornecedor D EIRELI', 'Fornecedor D', 'contato@fornecedord.com', '41966661111', 'Ana Pereira', 'Coordenadora', '40040000', 'Av. Paulista, 101', '400', 'PR'),
-('78912345000105', 'Fornecedor E Ltda', 'Fornecedor E', 'contato@fornecedore.com', '51955550000', 'Pedro Santos', 'Analista', '50050000', 'Rua das Palmeiras, 202', '500', 'RS');
+('12345678000101', 'Fornecedor A Ltda', 'Fornecedor A', 'contato@fornecedora.com', '11999994444', 'João Silva', 'Gerente', '01001000', 'Rua das Flores, 123', 'SP'),
+('98765432000102', 'Fornecedor B S.A.', 'Fornecedor B', 'contato@fornecedorb.com', '21988883333', 'Maria Souza', 'Diretora', '20020000', 'Av. Central, 456', 'RJ'),
+('45678912000103', 'Fornecedor C ME', 'Fornecedor C', 'contato@fornecedorc.com', '31977772222', 'Carlos Lima', 'Supervisor', '30030000', 'Rua do Comércio, 789', 'MG'),
+('65432198000104', 'Fornecedor D EIRELI', 'Fornecedor D', 'contato@fornecedord.com', '41966661111', 'Ana Pereira', 'Coordenadora', '40040000', 'Av. Paulista, 101', 'PR'),
+('78912345000105', 'Fornecedor E Ltda', 'Fornecedor E', 'contato@fornecedore.com', '51955550000', 'Pedro Santos', 'Analista', '50050000', 'Rua das Palmeiras, 202', 'RS');
 
 -- Inserindo dados na tabela Produto
 INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Descricao_Produto, Valor_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto, Custo_Produto) VALUES
